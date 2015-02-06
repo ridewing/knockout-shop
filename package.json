@@ -1,0 +1,10 @@
+{
+  "name": "knockshop",
+  "description": "Shop with knockout",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "gulp": "~3.8.7",
+    "project-helpers": "git://github.com/ridewing/project-helpers"
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui=1">
+        <title>Knockout shop</title>
+       
+
+		<link href="build/styles/main.css?v=5" media="all" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="build/scripts/components.min.js"></script>
+        <script type="text/javascript" src="build/scripts/main.min.js"></script>
+        
+    </head>
+    <body onload="init()">
+        <div class="main">
+            
+            <div class="content">
+                <h1>Shopping cart</h1>
+                <div data-bind="ifnot: hasProducts" >
+                    <h2 class="no-products">No products</h2>
+                </div>
+                <div data-bind="if: hasProducts">
+                    <div class="currency-wrapper">
+                        <form>
+                            <span>Select currency:</span>
+                            <div data-bind="foreach: currencies" class="currency">
+                                <input type="radio" data-bind="checkedValue: $data, checked: $parent.currency, attr: { checked: selected, id: id }, value: id" name="currency"/><label data-bind="text: label, attr: {for: id}"></label>
+                            </div>
+                        </form>
+                    </div>
+                    <table>
+                        
+                        <thead>
+                            <tr>
+                                <td colspan="2">Product</td>
+                                <td>Product id</td>
+                                <td>Price</td>
+                                <td>Count</td>
+                                <td>Total</td>
+                                <td>Remove</td>
+                            </tr>
+                        </thead>
+
+                        <tbody data-bind="foreach: products">
+                            <tr>
+                                <td data-bind="text: ($index() + 1)"></td>
+                                <td data-bind="text: title" class="bold"></td>
+                                <td data-bind="text: id"></td>
+                                <td data-bind="text: priceString"></td>
+                                <td>
+                                    <button class="controll" data-bind="click: subtract">-</button>
+                                    <input class="count" data-bind="value: count, event: { keyup: changed }" />
+                                    <button class="controll" data-bind="click: add">+</button>
+                                </td>
+                                <td data-bind="text: totalString" class="bold"></td>
+                                <td>
+                                    <button class="controll controll-remove" data-bind="click: $parent.removeProduct.bind($data, $index())">x</button>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="5"></td>
+                                <td colspan="2">Total</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5"></td>
+                                <td colspan="2" class="total-amount bold" data-bind="text: totalString"></td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+                
+                <button data-bind="click: addProduct">Add product</button>
+            </div>
+            
+        </div>
+    </body>
+</html>

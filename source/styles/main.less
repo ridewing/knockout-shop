@@ -1,0 +1,170 @@
+@import url(http://fonts.googleapis.com/css?family=Sintony);
+@import "../components/elements/elements.less";
+
+body {
+   background: #ecf1f5;
+    font-family: "Sintony";
+}
+
+.main {
+    background: white;
+    width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    
+    .currency-wrapper {
+        float: right;
+        margin-top: -80px;
+        
+        span {
+            font-size: 14px;
+        }
+    }
+    
+    .currency {
+        margin: 0px 0 20px 0;
+        
+        input {
+            cursor: pointer;
+            margin: 10px 0 10px 15px;
+            &:first-child {
+                margin-left: 2px;
+            }
+        }
+        label {
+            vertical-align: sub;
+            cursor: pointer;
+            padding-left: 10px;
+        }
+        
+    }
+    
+    input {
+        outline: none;
+    }
+    
+    table {
+        width: 100%;
+        border-spacing:0;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        
+        thead {
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        tbody {
+            font-size: 16px;
+            
+            tr {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        
+        tfoot {
+            td {
+                text-align: right !important;
+                font-weight: bold;
+                padding: 5px;
+            }
+            
+            tr {
+                &:first-child {
+                    td {
+                        padding-top: 20px;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+        
+        .count {
+            box-sizing: border-box;
+            padding: 0 10px;
+            height: 30px;
+            width: 60px;
+            margin: 0;
+            text-align: center;
+            display: block;
+            float: left;
+            border: none;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        tr {
+            button {
+                .opacity(0.8);
+            }
+            
+            &:hover, &:focus {
+                button {
+                    .opacity(1.0);
+                    .translate(0,0);
+                }
+                input {
+                    border-color: #ccc;
+                }
+            }
+        }
+        
+        td {
+            padding: 10px;  
+            font-size: 12px;
+            
+            &:last-child {
+                text-align: center;
+                
+                button {
+                    float: none !important;
+                }
+            }
+            
+            &.bold {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+    }
+    
+    
+    button {
+        
+        background: lighten(#363636, 10%);
+        border: none;
+        outline: none;
+        padding: 8px 20px;
+        margin: 0;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+        .transition(100ms);
+        
+        &.controll {
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            
+            &.controll-remove {
+                .rounded(2px);
+                &:hover {
+                    background: #e22c14;
+                }
+            }
+        }
+        
+        &:hover {
+            background: #2986e3;
+        }
+    }
+    
+    .no-products {
+        text-align: center;
+        color: rgba(0,0,0,0.6);
+        margin: 69px 0;
+    }
+}
